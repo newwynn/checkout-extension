@@ -1,0 +1,23 @@
+
+api_version = "2024-07"
+
+# Gives your extension access to make external network calls, using the
+# JavaScript `fetch()` API. Learn more:
+# https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#network-access
+[capabilities]
+api_access = true
+
+[[extensions]]
+type = "ui_extension"
+name = "order-status-thank-you"
+handle = "order-status-thank-you"
+
+[[extensions.targeting]]
+target = "purchase.thank-you.block.render"
+module = "./src/Checkout.jsx"
+export = "thankYouBlock"
+
+[[extensions.targeting]]
+target = "customer-account.order-status.block.render"
+module = "./src/Checkout.jsx"
+export = "orderDetailsBlock"
